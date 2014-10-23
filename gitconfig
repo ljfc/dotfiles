@@ -1,0 +1,25 @@
+[include]
+	# For username / github credentials etc
+	path ~/.gitconfig.local
+[core]
+        excludesfile = ~/.gitignore.global
+[color]
+        ui = true
+[alias]
+  a = add -A
+  llg = log --graph --pretty=format:'%Cred%h%Creset - %s%C(yellow)%d%Creset %C(blue)<%an, %ar>%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  lg = !git llg -20
+  df = diff --word-diff
+  st = status -sb
+  wip = commit -m "WIP"
+  fix = commit -m "FIX"
+  mywork = !git log --author=\"`git config user.name`\" --pretty=format:'%Cgreen(%cd)%Creset - %s %Cred(%h)%Creset' --date=short
+  mywork-lastmonth = !git log --author=\"`git config user.name`\" --pretty=format:'%Cgreen(%cd)%Creset - %s %Cred(%h)%Creset' --date=short --before={`date "+%Y-%m-01"`} --after={`date -v-1m "+%Y-%m-01"`} --reverse
+  csv-log = log --pretty=format:'%h,\"%s\",%an,%ad,%cd' --abbrev-commit --date=iso
+
+[push]
+        default = simple
+[merge]
+        conflictstyle = diff3
+[rerere]
+        enabled = 1
