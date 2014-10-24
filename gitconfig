@@ -1,6 +1,6 @@
 [include]
 	# For username / github credentials etc
-	path ~/.gitconfig.local
+	path = ~/.gitconfig.local
 [core]
         excludesfile = ~/.gitignore.global
 [color]
