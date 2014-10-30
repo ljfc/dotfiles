@@ -1,0 +1,91 @@
+" Customisation for all forms of Vim.
+
+syntax on
+
+set t_Co=255 " Full colour.
+set background=dark " Assume a dark background
+set number " Show line numbers.
+colorscheme solarized " Use the Solarized colorscheme.
+
+set mouse=a " Enable the mouse.
+set cursorline " Highlight the current line.
+
+" Change leader to space
+nmap <Space> <Nop>
+let mapleader=" "
+
+" Searching
+set incsearch
+set hlsearch
+" Tap <esc> again to clear the highlight.
+nnoremap <esc> :noh<return> 
+
+" Wrapping more like a regular editor.
+set wrap
+set textwidth=0
+set lbr
+" Also move up and down through wrapped text more like a regular editor.
+noremap <silent> j gj
+noremap <silent> k gk
+
+" Tabbing and indentation.
+set autoindent
+set tabstop=2
+set shiftwidth=2
+set expandtab
+if has ("autocmd")
+	filetype plugin indent on
+endif
+
+" Show a bit more context by default.
+set scrolloff=5
+
+" Folding like a bad poker hand.
+set foldmethod=syntax
+set foldlevel=1
+function! FoldText()
+	let width = winwidth(0) - &foldcolumn - (&number ? 4 : 0)
+	let first_line = getline(v:foldstart) . " ..."
+	let first_line = substitute(first_line, "{ \.\.\.", "{ ... }", "")
+	let expansion_string = repeat(" ", width) " Just put spaces after the fold.
+return first_line . expansion_string
+endfunction
+set foldtext=FoldText()
+
+" Visual block mode can include empty columns.
+set virtualedit=block
+
+" Autocomplete
+filetype plugin on
+
+" Quick file opening with Ctrl-P
+nnoremap <tab> :CtrlP<CR>
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*config/deploy*dummy*,*doc/*,*.o
+
+" Easymotion
+let g:EasyMotion_leader_key = '<Leader>'
+nmap <Leader><Space> H<Space>f
+
+" A convenient text object: operates on the actual text of the current line.
+vnoremap il :normal! ^v$h<CR>
+omap il :normal vil<CR>
+
+" Fat-finger compensation.
+cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
+
+" Clang completion.
+let g:clang_use_library=1
+let g:clang_library_path="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/"
+
+" Custom functions.
+
+" Switch to C++ header and vice-versa.
+function! HeaderToggle()
+  if (expand("%:e") == "cpp") " Check the file extension: this is the source file if true...
+    find %:t:r.hpp " ...so open the header file.
+  else "" Or it’s the header if false...
+    find %:t:r.cpp " ...so open the source file.
+  endif
+endfunction
+ 
+:command! H call HeaderToggle()
