@@ -22,4 +22,4 @@
 [merge]
         conflictstyle = diff3
 [rerere]
-        enabled = 1
+        enabled = 1 # Useful for re-using conflict resolutions when rebasing.

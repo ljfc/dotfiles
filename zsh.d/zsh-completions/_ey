@@ -1,0 +1,51 @@
+#compdef ey
+# ------------------------------------------------------------------------------
+# Description
+# -----------
+#
+#  Completion script for Engineyard (https://github.com/engineyard/engineyard).
+#
+# ------------------------------------------------------------------------------
+# Authors
+# -------
+#
+#  * Leo Critchley (https://github.com/ljfc)
+#
+# ------------------------------------------------------------------------------
+# -*- mode: zsh; sh-indentation: 2; indent-tabs-mode: nil; sh-basic-offset: 2; -*-
+# vim: ft=zsh sw=2 ts=2 et
+# ------------------------------------------------------------------------------
+
+
+local -a _1st_arguments
+_1st_arguments=(
+  'deploy:Deploy specified branch, tag, or sha to specified environment.'
+  'environments:List environments for this app; use --all to list all environments.'
+  'logs:Retrieve the latest logs for an environment.'
+  'rebuild:Rebuild specified environment.'
+  'rollback:Rollback to the previous deploy.'
+  'status:Show the deployment status of the app'
+  'recipes apply:Run chef recipes uploaded by "ey recipes upload" on the specified ...'
+  'recipes upload:Upload custom chef recipes to specified environment so they can be...'
+  'recipes download:Download a copy of the custom chef recipes from this environment i...'
+  'web enable:Remove the maintenance page for this application in the given envi...'
+  'web disable:Put up the maintenance page for this application in the given envi...'
+  'ssh:Open an ssh session to the master app server, or run a command.'
+  'launch:Open application in browser.'
+  'whoami:Who am I logged in as?'
+  'login:Log in and verify access to EY Cloud.'
+  'logout:Remove the current API key from ~/.eyrc or env variable $EYRC'
+)
+
+local expl
+local -a formulae installed_formulae
+
+_arguments \
+  '(--version)--version[ey version]' \
+  '(--help)--help[ey command help]' \
+  '*:: :->subcmds' && return 0
+
+if (( CURRENT == 1 )); then
+  _describe -t commands "ey subcommand" _1st_arguments
+  return
+fi
