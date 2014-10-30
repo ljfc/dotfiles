@@ -1,0 +1,610 @@
+<?xml version="1.0"?>
+<root>
+
+  <replacementdef>
+    <replacementname>UBIQUITOUS_VIM_BINDINGS_EXCEPTION_APPS</replacementname> 
+    <replacementvalue>TERMINAL, VI, PASSWORD, FIREFOX, EMACS</replacementvalue> 
+  </replacementdef>
+
+  <item>
+    <name>Control_L to Control_L</name>
+    <appendix>(+ When you type Control_L only, toggles Normal Mode)</appendix>
+    <identifier>private.vimnormal_toggle_controlL</identifier>
+    <!--<config_not>notsave.ubiq_vimnormal</config_not>-->
+    <not>TERMINAL, VI, PASSWORD, FIREFOX, EMACS</not>
+    <autogen>__KeyToKey__ KeyCode::RETURN, KeyCode::VK_MODIFIER_EXTRA1</autogen>
+    <autogen>--KeyOverlaidModifier-- KeyCode::CONTROL_L, KeyCode::CONTROL_L, KeyCode::VK_LOCK_ALL_FORCE_OFF, KeyCode::VK_CONFIG_TOGGLE_notsave_ubiq_vimnormal, KeyCode::VK_CONFIG_FORCE_OFF_notsave_g_operator_pending, KeyCode::VK_CONFIG_FORCE_OFF_notsave_c_w_operator_pending</autogen>
+  </item>
+
+  <item>
+    <name>Eject to F13</name>
+    <appendix>(Fn+Eject to Eject)</appendix>
+    <appendix>(+ Get out of normal mode, if active, so that Spotlight works)</appendix>
+    <identifier>private.eject2f13</identifier>
+    <autogen>--ConsumerToConsumer-- ConsumerKeyCode::EJECT, ModifierFlag::FN, ConsumerKeyCode::EJECT</autogen>
+    <autogen>--ConsumerToKey-- ConsumerKeyCode::EJECT, KeyCode::F13, KeyCode::VK_LOCK_ALL_FORCE_OFF, KeyCode::VK_CONFIG_FORCE_OFF_notsave_ubiq_vimnormal, KeyCode::VK_CONFIG_FORCE_OFF_notsave_g_operator_pending, KeyCode::VK_CONFIG_FORCE_OFF_notsave_c_w_operator_pending</autogen>
+  </item>
+
+  <item>
+    <name>Command_L to Command_L</name>
+    <appendix>(+ When you type Command_L only, send Escape)</appendix>
+    <identifier>private.commandL2commandL_escape</identifier>
+    <autogen>--KeyOverlaidModifier-- KeyCode::COMMAND_L, KeyCode::COMMAND_L, KeyCode::ESCAPE</autogen>
+  </item>
+
+  <item>
+    <name>Command_L to Command_L</name>
+    <appendix>(+ When you type Command_L only, send Return)</appendix>
+    <identifier>private.commandL2commandL_return</identifier>
+    <autogen>--KeyOverlaidModifier-- KeyCode::COMMAND_L, KeyCode::COMMAND_L, KeyCode::RETURN</autogen>
+  </item>
+
+  <item>
+    <name>Command_R to Control_R</name>
+    <appendix>(and that's all!)</appendix>
+    <identifier>private.commandR2controlR</identifier>
+    <autogen>--KeyOverlaidModifier-- KeyCode::COMMAND_R, KeyCode::CONTROL_R</autogen>
+  </item>
+
+  <item>
+    <name>Control+Space to underscore</name>
+    <identifier>private.shiftSpace2underscore</identifier>
+    <autogen>--KeyToKey-- KeyCode::SPACE, VK_CONTROL, KeyCode::MINUS, VK_SHIFT</autogen>
+  </item>
+
+  <item>
+    <name>Control+Option+Space to space</name>
+    <identifier>private.shiftOptionSpace2space</identifier>
+    <autogen>--KeyToKey-- KeyCode::SPACE, VK_CONTROL, VK_OPTION, KeyCode::SPACE</autogen>
+  </item>
+
+  <item>
+    <name>F5 to move windows for single monitor</name>
+    <identifier>private.f5SingleMonitor</identifier>
+    <autogen>
+      --KeyToKey-- KeyCode::F5,
+      KeyCode::KEY_2, VK_CONTROL | VK_COMMAND,
+        KeyCode::KEY_3, VK_CONTROL,
+        KeyCode::KEY_1, VK_CONTROL,
+          KeyCode::N,             VK_CONTROL | VK_COMMAND | VK_OPTION,
+          KeyCode::CURSOR_LEFT,   VK_CONTROL | VK_COMMAND | VK_OPTION,
+        KeyCode::KEY_2, VK_CONTROL,
+          KeyCode::N,             VK_CONTROL | VK_COMMAND | VK_OPTION,
+          KeyCode::CURSOR_RIGHT,   VK_CONTROL | VK_COMMAND | VK_OPTION,
+    </autogen>
+  </item>
+
+  <item>
+    <name>Truly Ergonomic left modifiers</name>
+    <appendix>Left shift to (</appendix>
+    <appendix>Left command to [</appendix>
+    <appendix>Left option to {</appendix>
+    <appendix>Fn + left shift to ‘</appendix>
+    <appendix>Fn + left command to “</appendix>
+    <identifier>private.teLeftModifiers</identifier>
+    <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L, KeyCode::KEY_9, VK_SHIFT</autogen>
+    <autogen>--KeyOverlaidModifier-- KeyCode::COMMAND_L, ModifierFlag::COMMAND_L | ModifierFlag::NONE, KeyCode::COMMAND_L, KeyCode::BRACKET_LEFT</autogen>
+    <autogen>--KeyOverlaidModifier-- KeyCode::OPTION_L, ModifierFlag::OPTION_L | ModifierFlag::NONE, KeyCode::OPTION_L, KeyCode::BRACKET_LEFT, VK_SHIFT</autogen>
+
+    <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L, ModifierFlag::FN, KeyCode::SHIFT_L, KeyCode::BRACKET_RIGHT, VK_OPTION</autogen>
+    <autogen>--KeyOverlaidModifier-- KeyCode::COMMAND_L, ModifierFlag::FN, KeyCode::COMMAND_L, KeyCode::BRACKET_LEFT, VK_OPTION</autogen>
+  </item>
+
+  <item>
+    <name>Truly Ergonomic right modifiers</name>
+    <appendix>Right shift to )</appendix>
+    <appendix>Right command to ]</appendix>
+    <appendix>Right control to }</appendix>
+    <appendix>Fn + right shift to ’</appendix>
+    <appendix>Fn + right command to ”</appendix>
+    <identifier>private.teRightModifiers</identifier>
+    <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_R | ModifierFlag::NONE, KeyCode::SHIFT_R, KeyCode::KEY_0, VK_SHIFT</autogen>
+    <autogen>--KeyOverlaidModifier-- KeyCode::COMMAND_R, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::COMMAND_R, KeyCode::BRACKET_RIGHT</autogen>
+    <autogen>--KeyOverlaidModifier-- KeyCode::CONTROL_R, ModifierFlag::CONTROL_R | ModifierFlag::NONE, KeyCode::CONTROL_R, KeyCode::BRACKET_RIGHT, VK_SHIFT</autogen>
+
+    <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R, ModifierFlag::FN, KeyCode::SHIFT_R, KeyCode::BRACKET_RIGHT, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L</autogen>
+    <autogen>--KeyOverlaidModifier-- KeyCode::COMMAND_R, ModifierFlag::FN, KeyCode::COMMAND_R, KeyCode::BRACKET_LEFT, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L</autogen>
+  </item>
+
+  <item>
+    <name>Truly Ergonomic central modifiers</name>
+    <identifier>private.centralModifiers</identifier>
+    <appendix>Return to Fn, or return if pressed alone</appendix>
+    <appendix>Forward delete to tab</appendix>
+    <appendix>Tab to Control, or Escape if used alone</appendix>
+    <autogen>__KeyOverlaidModifier__ KeyCode::RETURN, KeyCode::FN, KeyCode::RETURN</autogen>
+    <autogen>__KeyOverlaidModifier__ KeyCode::FORWARD_DELETE, KeyCode::TAB</autogen>
+    <autogen>__KeyOverlaidModifier__ KeyCode::TAB, KeyCode::CONTROL_L, KeyCode::ESCAPE</autogen>
+  </item>
+
+  <item>
+    <name>Truly Ergonomic central modifiers in non VIM apps</name>
+    <identifier>private.centralModifiersNonVIM</identifier>
+    <not>{{VIM_EMU_ONLY_APPS}}</not>
+    <only>{{VIM_EMU_IGNORE_APPS}}</only>
+    <autogen>__KeyOverlaidModifier__ KeyCode::RETURN, KeyCode::FN, KeyCode::RETURN</autogen>
+    <autogen>__KeyOverlaidModifier__ KeyCode::FORWARD_DELETE, KeyCode::TAB</autogen>
+    <autogen>__KeyOverlaidModifier__ KeyCode::TAB, KeyCode::CONTROL_L, KeyCode::ESCAPE</autogen>
+  </item>
+
+  <item>
+    <name>Truly Ergonomic left crosshair</name>
+    <identifier>private.teLeftCrosshair</identifier>
+    <!--<autogen>__KeyToKey__ KeyCode::PAGEUP, KeyCode::BACKQUOTE, VK_COMMAND</autogen>
+    <autogen>__KeyToKey__ KeyCode::PAGEDOWN, KeyCode::BACKQUOTE, VK_COMMAND | VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::END, KeyCode::TAB, VK_COMMAND</autogen>
+    <autogen>__KeyToKey__ KeyCode::HOME, KeyCode::TAB, VK_COMMAND | VK_SHIFT</autogen>-->
+    <autogen>__KeyToKey__ KeyCode::PAGEUP, KeyCode::CURSOR_UP, VK_COMMAND | VK_OPTION | VK_CONTROL</autogen>
+    <autogen>__KeyToKey__ KeyCode::PAGEDOWN, KeyCode::CURSOR_DOWN, VK_COMMAND | VK_OPTION | VK_CONTROL</autogen>
+    <autogen>__KeyToKey__ KeyCode::END, KeyCode::CURSOR_RIGHT, VK_COMMAND | VK_OPTION | VK_CONTROL</autogen>
+    <autogen>__KeyToKey__ KeyCode::HOME, KeyCode::CURSOR_LEFT, VK_COMMAND | VK_OPTION | VK_CONTROL</autogen>
+  </item>
+
+  <item>
+    <name>Truly Ergonomic right crosshair</name>
+    <identifier>private.teRightCrosshair</identifier>
+    <appendix>Normal functioning unchanged</appendix>
+    <appendix>Fn + arrow keys to Spectacle window resizing</appendix>
+    <autogen>__KeyToKey__ KeyCode::CURSOR_UP, KeyCode::CURSOR_UP, VK_COMMAND | VK_OPTION | VK_CONTROL</autogen>
+    <autogen>__KeyToKey__ KeyCode::CURSOR_DOWN, KeyCode::CURSOR_DOWN, VK_COMMAND | VK_OPTION | VK_CONTROL</autogen>
+    <autogen>__KeyToKey__ KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, VK_COMMAND | VK_OPTION | VK_CONTROL</autogen>
+    <autogen>__KeyToKey__ KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, VK_COMMAND | VK_OPTION | VK_CONTROL</autogen>
+  </item>
+
+  <item>
+    <name>Truly Ergonomic top row</name>
+    <identifier>private.teTopRow</identifier>
+    <autogen>__KeyOverlaidModifier__ KeyCode::KEYPAD_CLEAR, KeyCode::F13</autogen>
+  </item>
+
+  <item>
+    <name>Truly Ergonomic main numbers</name>
+    <identifier>private.teMainNumbers</identifier>
+    <appendix>1..0 on main keyboard to F14-F19, Shift F1-F4</appendix>
+    <autogen>__KeyToKey__, KeyCode::KEY_1, KeyCode::F14</autogen>
+    <autogen>__KeyToKey__, KeyCode::KEY_2, KeyCode::F15</autogen>
+    <autogen>__KeyToKey__, KeyCode::KEY_3, KeyCode::F16</autogen>
+    <autogen>__KeyToKey__, KeyCode::KEY_4, KeyCode::F17</autogen>
+    <autogen>__KeyToKey__, KeyCode::KEY_5, KeyCode::F18</autogen>
+    <autogen>__KeyToKey__, KeyCode::KEY_6, KeyCode::F19</autogen>
+    <autogen>__KeyToKey__, KeyCode::KEY_7, KeyCode::F1, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__, KeyCode::KEY_8, KeyCode::F2, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__, KeyCode::KEY_9, KeyCode::F3, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__, KeyCode::KEY_0, KeyCode::F4, VK_SHIFT</autogen>
+  </item>
+
+  <item>
+    <name>Truly Ergonomic right punctuation keys</name>
+    <identifier>private.teRightPunctuation</identifier>
+    <appendix>Right-hand square of punctuation keys to Spectacle window resizing</appendix>
+    <autogen>__KeyToKey__, KeyCode::MINUS, KeyCode::BRACKET_LEFT, VK_COMMAND | VK_OPTION | VK_CONTROL</autogen>
+    <autogen>__KeyToKey__, KeyCode::EQUAL, KeyCode::BRACKET_RIGHT, VK_COMMAND | VK_OPTION | VK_CONTROL</autogen>
+    <autogen>__KeyToKey__, KeyCode::BRACKET_LEFT, KeyCode::QUOTE, VK_COMMAND | VK_OPTION | VK_CONTROL</autogen>
+    <autogen>__KeyToKey__, KeyCode::BRACKET_RIGHT, KeyCode::BACKSLASH, VK_COMMAND | VK_OPTION | VK_CONTROL</autogen>
+  </item>
+
+  <item>
+    <name>Truly Ergonomic left punctuation keys</name>
+    <identifier>private.teLeftPunctuation</identifier>
+    <autogen>__KeyToKey__, KeyCode::BACKQUOTE, KeyCode::N, VK_COMMAND | VK_OPTION | VK_CONTROL</autogen>
+    <autogen>__KeyToKey__, KeyCode::DANISH_DOLLAR, KeyCode::M, VK_COMMAND | VK_OPTION | VK_CONTROL</autogen>
+    <autogen>__KeyToKey__, KeyCode::BACKSLASH, KeyCode::BACKQUOTE, VK_COMMAND</autogen>
+    <autogen>__KeyToKey__, KeyCode::SLASH, KeyCode::BACKQUOTE, VK_COMMAND | VK_SHIFT</autogen>
+  </item>
+
+  <item>
+    <name>Truly Ergonomic Function + right-hand keys to numeric keypad</name>
+    <appendix>Function + UIOJKLM,. Space to numeric keypad</appendix>
+    <appendix>Function + YHN to +-=</appendix>
+    <appendix>Function + P;' to ±*~</appendix>
+    <identifier>private.fnKeypad</identifier>
+    <autogen>__KeyToKey__ KeyCode::SPACE, ModifierFlag::FN, KeyCode::KEY_0</autogen>
+    <autogen>__KeyToKey__ KeyCode::M, ModifierFlag::FN, KeyCode::KEY_1</autogen>
+    <autogen>__KeyToKey__ KeyCode::COMMA, ModifierFlag::FN, KeyCode::KEY_2</autogen>
+    <autogen>__KeyToKey__ KeyCode::DOT, ModifierFlag::FN, KeyCode::KEY_3</autogen>
+    <autogen>__KeyToKey__ KeyCode::J, ModifierFlag::FN, KeyCode::KEY_4</autogen>
+    <autogen>__KeyToKey__ KeyCode::K, ModifierFlag::FN, KeyCode::KEY_5</autogen>
+    <autogen>__KeyToKey__ KeyCode::L, ModifierFlag::FN, KeyCode::KEY_6</autogen>
+    <autogen>__KeyToKey__ KeyCode::U, ModifierFlag::FN, KeyCode::KEY_7</autogen>
+    <autogen>__KeyToKey__ KeyCode::I, ModifierFlag::FN, KeyCode::KEY_8</autogen>
+    <autogen>__KeyToKey__ KeyCode::O, ModifierFlag::FN, KeyCode::KEY_9</autogen>
+
+    <autogen>__KeyToKey__ KeyCode::Y, ModifierFlag::FN, KeyCode::EQUAL, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::H, ModifierFlag::FN, KeyCode::MINUS</autogen>
+    <autogen>__KeyToKey__ KeyCode::N, ModifierFlag::FN, KeyCode::EQUAL</autogen>
+
+    <autogen>__KeyToKey__ KeyCode::P, ModifierFlag::FN, KeyCode::DANISH_DOLLAR, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::SEMICOLON, ModifierFlag::FN, KeyCode::KEY_8, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::QUOTE, ModifierFlag::FN, KeyCode::BACKQUOTE, VK_SHIFT</autogen>
+  </item>
+
+<!--
+  Data from http://mtgap.bilfo.com/letter_frequency.html
+
+  Character Frequency:   SPC e t a o i n s r h l d c u m f g p y w ENT b , . v k - " _ ' x ) ( ; 0 j 1 q = 2 : z / * ! ? $ 3 5 > { } 4 9 [ ] 8 6 7 \ + | & < % @ # ^ ` ~
+  Letter Frequency:      e t a o i n s r h l d c u m f g p y w b v k x j q z
+  Punctuation Frequency: , . - " _ ' ) ( ; = : / * ! ? $ > { } [ ] \ + | & < % @ # ^ ` ~
+  Number Frequency:      0 1 2 3 5 4 9 8 6 7
+  Big Key Frequency*:    SPACE SHIFT BACKSPACE ENTER TAB
+-->
+
+  <item>
+    <name>Truly Ergonomic Function + left-hand keys to punctuation</name>
+    <appendix>Function + QWERT to `^%$§</appendix>
+    <appendix>Function + ASDFG to !@"'#</appendix>
+    <appendix>Function + ZXCVB to \|£&amp;–</appendix>
+    <identifier>private.fnPunctuationpad</identifier>
+    <autogen>__KeyToKey__ KeyCode::Q, ModifierFlag::FN, KeyCode::BACKQUOTE</autogen>
+    <autogen>__KeyToKey__ KeyCode::W, ModifierFlag::FN, KeyCode::KEY_6, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::E, ModifierFlag::FN, KeyCode::KEY_5, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::R, ModifierFlag::FN, KeyCode::KEY_4, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::T, ModifierFlag::FN, KeyCode::DANISH_DOLLAR</autogen>
+
+    <autogen>__KeyToKey__ KeyCode::A, ModifierFlag::FN, KeyCode::KEY_1, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::S, ModifierFlag::FN, KeyCode::KEY_2, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::D, ModifierFlag::FN, KeyCode::QUOTE, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::F, ModifierFlag::FN, KeyCode::QUOTE</autogen>
+    <autogen>__KeyToKey__ KeyCode::G, ModifierFlag::FN, KeyCode::KEY_3, VK_OPTION</autogen>
+
+    <autogen>__KeyToKey__ KeyCode::Z, ModifierFlag::FN, KeyCode::BACKSLASH</autogen>
+    <autogen>__KeyToKey__ KeyCode::X, ModifierFlag::FN, KeyCode::BACKSLASH, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::C, ModifierFlag::FN, KeyCode::KEY_3, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::V, ModifierFlag::FN, KeyCode::KEY_7, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::B, ModifierFlag::FN, KeyCode::MINUS, VK_OPTION</autogen>
+  </item>
+
+  <item>
+    <name>Truly Ergonomic main keyboard</name>
+    <appendix>'" to /?</appendix>
+    <identifier>private.teMain</identifier>
+    <autogen>__KeyToKey__ KeyCode::QUOTE, KeyCode::SLASH</autogen>
+  </item>
+
+  <item>
+    <name>Laser numbers and symbols layer (Apple UK)</name>
+    <appendix>Makes a new pair of modifiers, below the shift keys.</appendix>
+    <appendix>Mod + 890IOPKL;, to numeric keypad</appendix>
+    <appendix>Mod + 7uj to =-~</appendix>
+    <appendix>Mod + -[' to *+/</appendix>
+    <appendix>Mod + 12345 to `^%$§</appendix>
+    <appendix>Mod + QWERT to !@"'#</appendix>
+    <appendix>Mod + ASDFG to \|£&amp;–</appendix>
+    <identifier>private.lzrFunctionAppleUK</identifier>
+
+    <autogen>__KeyToKey__ KeyCode::BACKSLASH, KeyCode::VK_MODIFIER_EXTRA1</autogen>
+    <autogen>__KeyToKey__ KeyCode::PC_APPLICATION, KeyCode::VK_MODIFIER_EXTRA1</autogen>
+
+    <autogen>__KeyToKey__ KeyCode::COMMA, ModifierFlag::EXTRA1, KeyCode::KEY_0</autogen>
+    <autogen>__KeyToKey__ KeyCode::K, ModifierFlag::EXTRA1, KeyCode::KEY_1</autogen>
+    <autogen>__KeyToKey__ KeyCode::L, ModifierFlag::EXTRA1, KeyCode::KEY_2</autogen>
+    <autogen>__KeyToKey__ KeyCode::SEMICOLON, ModifierFlag::EXTRA1, KeyCode::KEY_3</autogen>
+    <autogen>__KeyToKey__ KeyCode::I, ModifierFlag::EXTRA1, KeyCode::KEY_4</autogen>
+    <autogen>__KeyToKey__ KeyCode::O, ModifierFlag::EXTRA1, KeyCode::KEY_5</autogen>
+    <autogen>__KeyToKey__ KeyCode::P, ModifierFlag::EXTRA1, KeyCode::KEY_6</autogen>
+    <autogen>__KeyToKey__ KeyCode::KEY_8, ModifierFlag::EXTRA1, KeyCode::KEY_7</autogen>
+    <autogen>__KeyToKey__ KeyCode::KEY_9, ModifierFlag::EXTRA1, KeyCode::KEY_8</autogen>
+    <autogen>__KeyToKey__ KeyCode::KEY_0, ModifierFlag::EXTRA1, KeyCode::KEY_9</autogen>
+
+    <autogen>__KeyToKey__ KeyCode::KEY_7, ModifierFlag::EXTRA1, KeyCode::EQUAL</autogen>
+    <autogen>__KeyToKey__ KeyCode::U, ModifierFlag::EXTRA1, KeyCode::MINUS</autogen>
+    <autogen>__KeyToKey__ KeyCode::J, ModifierFlag::EXTRA1, KeyCode::BACKQUOTE, VK_SHIFT</autogen>
+
+    <autogen>__KeyToKey__ KeyCode::MINUS, ModifierFlag::EXTRA1, KeyCode::KEY_8, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::BRACKET_LEFT, ModifierFlag::EXTRA1, KeyCode::EQUAL, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::QUOTE, ModifierFlag::EXTRA1, KeyCode::SLASH</autogen>-->
+
+    <!--
+      Data from http://mtgap.bilfo.com/letter_frequency.html
+
+      Character Frequency:   SPC e t a o i n s r h l d c u m f g p y w ENT b , . v k - " _ ' x ) ( ; 0 j 1 q = 2 : z / * ! ? $ 3 5 > { } 4 9 [ ] 8 6 7 \ + | & < % @ # ^ ` ~
+      Letter Frequency:      e t a o i n s r h l d c u m f g p y w b v k x j q z
+      Punctuation Frequency: , . - " _ ' ) ( ; = : / * ! ? $ > { } [ ] \ + | & < % @ # ^ ` ~
+      Number Frequency:      0 1 2 3 5 4 9 8 6 7
+      Big Key Frequency*:    SPACE SHIFT BACKSPACE ENTER TAB
+    -->
+
+    <autogen>__KeyToKey__ KeyCode::KEY_1, ModifierFlag::EXTRA1, KeyCode::BACKQUOTE</autogen>
+    <autogen>__KeyToKey__ KeyCode::KEY_2, ModifierFlag::EXTRA1, KeyCode::KEY_6, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::KEY_3, ModifierFlag::EXTRA1, KeyCode::KEY_5, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::KEY_4, ModifierFlag::EXTRA1, KeyCode::KEY_4, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::KEY_5, ModifierFlag::EXTRA1, KeyCode::DANISH_DOLLAR</autogen>
+
+    <autogen>__KeyToKey__ KeyCode::Q, ModifierFlag::EXTRA1, KeyCode::KEY_1, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::W, ModifierFlag::EXTRA1, KeyCode::KEY_2, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::E, ModifierFlag::EXTRA1, KeyCode::QUOTE, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::R, ModifierFlag::EXTRA1, KeyCode::QUOTE</autogen>
+    <autogen>__KeyToKey__ KeyCode::T, ModifierFlag::EXTRA1, KeyCode::KEY_3, VK_OPTION</autogen>
+
+    <autogen>__KeyToKey__ KeyCode::A, ModifierFlag::EXTRA1, KeyCode::BACKSLASH</autogen>
+    <autogen>__KeyToKey__ KeyCode::S, ModifierFlag::EXTRA1, KeyCode::BACKSLASH, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::D, ModifierFlag::EXTRA1, KeyCode::KEY_3, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::F, ModifierFlag::EXTRA1, KeyCode::KEY_7, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::G, ModifierFlag::EXTRA1, KeyCode::MINUS, VK_OPTION</autogen>
+  </item>
+
+  <item>
+    <name>Laser main keyboard (Apple UK)</name>
+    <appendix>Remaps regular keyboard entirely.</appendix>
+    <appendix>Moves normal letters up and out to provide central keys and more command keys.</appendix>
+    <appendix>Disables current command keys and spacebar to prevent accidental clicks.</appendix>
+    <appendix>Moves shift keys level with new home row.</appendix>
+    <identifier>private.lzrMainAppleUK</identifier>
+
+    <!-- New top row is old number row. -->
+    <autogen>__KeyToKey__ KeyCode::KEY_1, KeyCode::Q</autogen>
+    <autogen>__KeyToKey__ KeyCode::KEY_2, KeyCode::W</autogen>
+    <autogen>__KeyToKey__ KeyCode::KEY_3, KeyCode::E</autogen>
+    <autogen>__KeyToKey__ KeyCode::KEY_4, KeyCode::R</autogen>
+    <autogen>__KeyToKey__ KeyCode::KEY_5, KeyCode::T</autogen>
+
+    <autogen>__KeyToKey__ KeyCode::KEY_6, KeyCode::TAB</autogen>
+
+    <autogen>__KeyToKey__ KeyCode::KEY_7, KeyCode::Y</autogen>
+    <autogen>__KeyToKey__ KeyCode::KEY_8, KeyCode::U</autogen>
+    <autogen>__KeyToKey__ KeyCode::KEY_9, KeyCode::I</autogen>
+    <autogen>__KeyToKey__ KeyCode::KEY_0, KeyCode::O</autogen>
+    <autogen>__KeyToKey__ KeyCode::MINUS, KeyCode::P</autogen>
+
+    <!-- New home row is old top row. -->
+    <autogen>__KeyToKey__ KeyCode::Q, KeyCode::A</autogen>
+    <autogen>__KeyToKey__ KeyCode::W, KeyCode::S</autogen>
+    <autogen>__KeyToKey__ KeyCode::E, KeyCode::D</autogen>
+    <autogen>__KeyToKey__ KeyCode::R, KeyCode::F</autogen>
+    <autogen>__KeyToKey__ KeyCode::T, KeyCode::G</autogen>
+
+    <autogen>__KeyToKey__ KeyCode::Y, KeyCode::CONTROL_L</autogen>
+
+    <autogen>__KeyToKey__ KeyCode::U, KeyCode::H</autogen>
+    <autogen>__KeyToKey__ KeyCode::I, KeyCode::J</autogen>
+    <autogen>__KeyToKey__ KeyCode::O, KeyCode::K</autogen>
+    <autogen>__KeyToKey__ KeyCode::P, KeyCode::L</autogen>
+    <autogen>__KeyToKey__ KeyCode::BRACKET_LEFT, KeyCode::SEMICOLON</autogen>
+
+    <!-- New bottom row is old home row. -->
+    <autogen>__KeyToKey__ KeyCode::A, KeyCode::Z</autogen>
+    <autogen>__KeyToKey__ KeyCode::S, KeyCode::X</autogen>
+    <autogen>__KeyToKey__ KeyCode::D, KeyCode::C</autogen>
+    <autogen>__KeyToKey__ KeyCode::F, KeyCode::V</autogen>
+    <autogen>__KeyToKey__ KeyCode::G, KeyCode::B</autogen>
+    <!-- Skip centre key (H) -->
+    <autogen>__KeyToKey__ KeyCode::J, KeyCode::N</autogen>
+    <autogen>__KeyToKey__ KeyCode::K, KeyCode::M</autogen>
+    <autogen>__KeyToKey__ KeyCode::L, KeyCode::COMMA</autogen>
+    <autogen>__KeyToKey__ KeyCode::SEMICOLON, KeyCode::DOT</autogen>
+    <autogen>__KeyToKey__ KeyCode::QUOTE, KeyCode::SLASH</autogen>
+
+    <!-- New command row is old bottom row. -->
+    <autogen>__KeyToKey__ KeyCode::BACKQUOTE, KeyCode::CONTROL_L</autogen>
+    <autogen>__KeyToKey__ KeyCode::Z, KeyCode::OPTION_R</autogen>
+    <autogen>__KeyToKey__ KeyCode::X, KeyCode::COMMAND_L</autogen>
+    <autogen>__KeyToKey__ KeyCode::C, KeyCode::SPACE</autogen>
+    <autogen>__KeyToKey__ KeyCode::V, KeyCode::FN</autogen>
+    <!-- Skip centre key (B) -->
+    <autogen>__KeyToKey__ KeyCode::N, KeyCode::FN</autogen>
+    <autogen>__KeyToKey__ KeyCode::M, KeyCode::SPACE</autogen>
+    <autogen>__KeyToKey__ KeyCode::COMMA, KeyCode::COMMAND_R</autogen>
+    <autogen>__KeyToKey__ KeyCode::DOT, KeyCode::OPTION_R</autogen>
+    <autogen>__KeyToKey__ KeyCode::SLASH, KeyCode::CONTROL_R</autogen>
+
+    <!-- Move shift keys. -->
+    <autogen>__KeyToKey__ KeyCode::TAB, KeyCode::SHIFT_L</autogen>
+    <autogen>__KeyToKey__ KeyCode::BRACKET_RIGHT, KeyCode::SHIFT_R</autogen>
+
+  </item>
+
+  <item>
+    <name>Laser II numbers and symbols layer (Apple UK)</name>
+    <appendix>Makes a new pair of modifiers, below the shift keys, which also type brackets</appendix>
+    <appendix>Mod + 890IOPKL;, to numeric keypad</appendix>
+    <appendix>Mod + 7uj to =-~</appendix>
+    <appendix>Mod + -[' to *+/</appendix>
+    <appendix>Mod + 12345 to `^%$§</appendix>
+    <appendix>Mod + QWERT to !@"'#</appendix>
+    <appendix>Mod + ASDFG to \|£&amp;–</appendix>
+    <appendix>Mod + 1..0 on main keyboard to F14-F19, Shift F1-F4</appendix>
+    <appendix>The new modifiers make the opposite shift/new-modifier keys type curly quotes.</appendix>
+    <identifier>private.lzriiFunctionAppleUK</identifier>
+
+    <!-- Modifier keys. -->
+
+    <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L, KeyCode::VK_MODIFIER_EXTRA1, KeyCode::BRACKET_LEFT</autogen>
+    <autogen>--KeyOverlaidModifier-- KeyCode::RETURN, KeyCode::VK_MODIFIER_EXTRA1, KeyCode::BRACKET_RIGHT</autogen>
+
+    <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_R, KeyCode::SHIFT_L, KeyCode::Y</autogen>
+
+    <!-- Number function keys -->
+    <autogen>__KeyToKey__, KeyCode::KEY_1, ModifierFlag::EXTRA1, KeyCode::F14</autogen>
+    <autogen>__KeyToKey__, KeyCode::KEY_2, ModifierFlag::EXTRA1, KeyCode::F15</autogen>
+    <autogen>__KeyToKey__, KeyCode::KEY_3, ModifierFlag::EXTRA1, KeyCode::F16</autogen>
+    <autogen>__KeyToKey__, KeyCode::KEY_4, ModifierFlag::EXTRA1, KeyCode::F17</autogen>
+    <autogen>__KeyToKey__, KeyCode::KEY_5, ModifierFlag::EXTRA1, KeyCode::F18</autogen>
+    <autogen>__KeyToKey__, KeyCode::KEY_6, ModifierFlag::EXTRA1, KeyCode::F19</autogen>
+    <autogen>__KeyToKey__, KeyCode::KEY_7, ModifierFlag::EXTRA1, KeyCode::F1, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__, KeyCode::KEY_8, ModifierFlag::EXTRA1, KeyCode::F2, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__, KeyCode::KEY_9, ModifierFlag::EXTRA1, KeyCode::F3, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__, KeyCode::KEY_0, ModifierFlag::EXTRA1, KeyCode::F4, VK_SHIFT</autogen>
+
+    <!-- Number pad -->
+
+    <autogen>__KeyToKey__ KeyCode::COMMAND_R, ModifierFlag::EXTRA1, KeyCode::KEY_0</autogen>
+
+    <autogen>__KeyToKey__ KeyCode::COMMA, ModifierFlag::EXTRA1, KeyCode::KEY_1</autogen>
+    <autogen>__KeyToKey__ KeyCode::DOT, ModifierFlag::EXTRA1, KeyCode::KEY_2</autogen>
+    <autogen>__KeyToKey__ KeyCode::SLASH, ModifierFlag::EXTRA1, KeyCode::KEY_3</autogen>
+
+    <autogen>__KeyToKey__ KeyCode::K, ModifierFlag::EXTRA1, KeyCode::KEY_4</autogen>
+    <autogen>__KeyToKey__ KeyCode::L, ModifierFlag::EXTRA1, KeyCode::KEY_5</autogen>
+    <autogen>__KeyToKey__ KeyCode::SEMICOLON, ModifierFlag::EXTRA1, KeyCode::KEY_6</autogen>
+
+    <autogen>__KeyToKey__ KeyCode::I, ModifierFlag::EXTRA1, KeyCode::KEY_7</autogen>
+    <autogen>__KeyToKey__ KeyCode::O, ModifierFlag::EXTRA1, KeyCode::KEY_8</autogen>
+    <autogen>__KeyToKey__ KeyCode::P, ModifierFlag::EXTRA1, KeyCode::KEY_9</autogen>
+
+    <autogen>__KeyToKey__ KeyCode::U, ModifierFlag::EXTRA1, KeyCode::EQUAL</autogen>
+    <autogen>__KeyToKey__ KeyCode::J, ModifierFlag::EXTRA1, KeyCode::MINUS</autogen>
+    <autogen>__KeyToKey__ KeyCode::M, ModifierFlag::EXTRA1, KeyCode::BACKQUOTE, VK_SHIFT</autogen>
+
+    <autogen>__KeyToKey__ KeyCode::BRACKET_LEFT, ModifierFlag::EXTRA1, KeyCode::KEY_8, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::QUOTE, ModifierFlag::EXTRA1, KeyCode::EQUAL, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::SHIFT_R, ModifierFlag::EXTRA1, KeyCode::SLASH</autogen>-->
+
+    <!--
+      Data from http://mtgap.bilfo.com/letter_frequency.html
+
+      Character Frequency:   SPC e t a o i n s r h l d c u m f g p y w ENT b , . v k - " _ ' x ) ( ; 0 j 1 q = 2 : z / * ! ? $ 3 5 > { } 4 9 [ ] 8 6 7 \ + | & < % @ # ^ ` ~
+      Letter Frequency:      e t a o i n s r h l d c u m f g p y w b v k x j q z
+      Punctuation Frequency: , . - " _ ' ) ( ; = : / * ! ? $ > { } [ ] \ + | & < % @ # ^ ` ~
+      Number Frequency:      0 1 2 3 5 4 9 8 6 7
+      Big Key Frequency*:    SPACE SHIFT BACKSPACE ENTER TAB
+    -->
+
+    <autogen>__KeyToKey__ KeyCode::Q, ModifierFlag::EXTRA1, KeyCode::BACKQUOTE</autogen>
+    <autogen>__KeyToKey__ KeyCode::W, ModifierFlag::EXTRA1, KeyCode::KEY_6, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::E, ModifierFlag::EXTRA1, KeyCode::KEY_5, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::R, ModifierFlag::EXTRA1, KeyCode::KEY_4, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::T, ModifierFlag::EXTRA1, KeyCode::DANISH_DOLLAR</autogen>
+
+    <autogen>__KeyToKey__ KeyCode::A, ModifierFlag::EXTRA1, KeyCode::KEY_1, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::S, ModifierFlag::EXTRA1, KeyCode::KEY_2, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::D, ModifierFlag::EXTRA1, KeyCode::QUOTE, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::F, ModifierFlag::EXTRA1, KeyCode::QUOTE</autogen>
+    <autogen>__KeyToKey__ KeyCode::G, ModifierFlag::EXTRA1, KeyCode::KEY_3, VK_OPTION</autogen>
+
+    <autogen>__KeyToKey__ KeyCode::Z, ModifierFlag::EXTRA1, KeyCode::BACKSLASH</autogen>
+    <autogen>__KeyToKey__ KeyCode::X, ModifierFlag::EXTRA1, KeyCode::BACKSLASH, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::C, ModifierFlag::EXTRA1, KeyCode::KEY_3, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::V, ModifierFlag::EXTRA1, KeyCode::KEY_7, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::B, ModifierFlag::EXTRA1, KeyCode::MINUS, VK_OPTION</autogen>
+  </item>
+
+  <item>
+    <name>Laser II main keyboard (Apple UK)</name>
+    <appendix>Remaps regular keyboard.</appendix>
+    <appendix>Moves half the normal letters along to provide central keys:</appendix>
+    <appendix>- Tab</appendix>
+    <appendix>- Esc (hold for Control key)</appendix>
+    <appendix>- Underscore</appendix>
+    <appendix>Moves shift keys level with new home row.</appendix>
+    <appendix>Shift L / R type parentheses.</appendix>
+    <appendix>Adds new functionality:</appendix>
+    <appendix>- Command keys work as return/enter key</appendix>
+    <identifier>private.lzriiMainAppleUK</identifier>
+
+    <!-- Additional functionality. -->
+    <autogen>--KeyOverlaidModifier-- KeyCode::COMMAND_R, KeyCode::COMMAND_R, KeyCode::ENTER</autogen>
+    <autogen>--KeyOverlaidModifier-- KeyCode::COMMAND_L, KeyCode::COMMAND_L, KeyCode::RETURN</autogen>
+
+    <autogen>__KeyToKey__, KeyCode::TAB, KeyCode::BACKQUOTE, VK_COMMAND</autogen>
+    <autogen>__KeyToKey__, KeyCode::BRACKET_RIGHT, KeyCode::BACKQUOTE, VK_COMMAND | VK_SHIFT</autogen>
+    <autogen>__KeyToKey__, KeyCode::DANISH_DOLLAR, KeyCode::N, VK_COMMAND | VK_OPTION | VK_CONTROL</autogen>
+    <autogen>__KeyToKey__, KeyCode::ESCAPE, KeyCode::M, VK_COMMAND | VK_OPTION | VK_CONTROL</autogen>
+
+    <autogen>__KeyToKey__, KeyCode::BACKQUOTE, KeyCode::BACKQUOTE, VK_SHIFT</autogen>
+    <!-- Need to switch extra modifier to above shift rather than below. Need to provide a better way to get at -, >, <, =, perhaps? Use them more in programming... -->
+
+    <!-- Moved keys and centre keys. -->
+    <autogen>__KeyToKey__ KeyCode::Y, KeyCode::TAB</autogen>
+    <autogen>__KeyToKey__ KeyCode::U, KeyCode::Y</autogen>
+    <autogen>__KeyToKey__ KeyCode::I, KeyCode::U</autogen>
+    <autogen>__KeyToKey__ KeyCode::O, KeyCode::I</autogen>
+    <autogen>__KeyToKey__ KeyCode::P, KeyCode::O</autogen>
+    <autogen>__KeyToKey__ KeyCode::BRACKET_LEFT, KeyCode::P</autogen>
+
+    <autogen>--KeyOverlaidModifier-- KeyCode::H, KeyCode::CONTROL_L, KeyCode::ESCAPE</autogen>
+    <autogen>__KeyToKey__ KeyCode::J, KeyCode::H</autogen>
+    <autogen>__KeyToKey__ KeyCode::K, KeyCode::J</autogen>
+    <autogen>__KeyToKey__ KeyCode::L, KeyCode::K</autogen>
+    <autogen>__KeyToKey__ KeyCode::SEMICOLON, KeyCode::L</autogen>
+    <autogen>__KeyToKey__ KeyCode::QUOTE, KeyCode::SEMICOLON</autogen>
+
+    <autogen>__KeyToKey__ KeyCode::B, KeyCode::MINUS, ModifierFlag::SHIFT_R</autogen>
+    <autogen>__KeyToKey__ KeyCode::N, KeyCode::B</autogen>
+    <autogen>__KeyToKey__ KeyCode::M, KeyCode::N</autogen>
+    <autogen>__KeyToKey__ KeyCode::COMMA, KeyCode::M</autogen>
+    <autogen>__KeyToKey__ KeyCode::DOT, KeyCode::COMMA</autogen>
+    <autogen>__KeyToKey__ KeyCode::SLASH, KeyCode::DOT</autogen>
+    <autogen>__KeyToKey__ KeyCode::SHIFT_R, KeyCode::SLASH</autogen>
+
+    <!-- Move shift keys and add extra functionality. -->
+    <autogen>--KeyOverlaidModifier-- KeyCode::PC_APPLICATION, KeyCode::SHIFT_L, KeyCode::KEY_9, VK_SHIFT</autogen>
+    <autogen>--KeyOverlaidModifier-- KeyCode::BACKSLASH, KeyCode::SHIFT_R, KeyCode::KEY_0, VK_SHIFT</autogen>
+  </item>
+
+  <item>
+    <name>Punctuation on main keyboard</name>
+    <item>
+      <name>Quote marks</name>
+      <appendix>E, R to “, ”</appendix>
+      <appendix>D, F to ", '</appendix>
+      <appendix>C, V to ‘, ’</appendix>
+      <autogen>__ShowStatusMessage__ Quote mark mode</autogen>
+      <autogen>__KeyToKey__ KeyCode::E, KeyCode::BRACKET_LEFT, ModifierFlag::OPTION_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::R, KeyCode::BRACKET_LEFT, ModifierFlag::SHIFT_L | ModifierFlag::OPTION_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::D, KeyCode::QUOTE, ModifierFlag::SHIFT_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::F, KeyCode::QUOTE</autogen>
+      <autogen>__KeyToKey__ KeyCode::C, KeyCode::BRACKET_RIGHT, ModifierFlag::OPTION_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::V, KeyCode::BRACKET_RIGHT, ModifierFlag::SHIFT_L | ModifierFlag::OPTION_L</autogen>
+      <item>
+        <name>Hold ' to enable the modifiers</name>
+        <identifier vk_config="true">notsave.quotemark_mode</identifier>
+        <appendix>Typing ' alone still produces '</appendix>
+        <identifier>private.quotemark_mode</identifier>
+        <autogen>__HoldingKeyToKey__ KeyCode::QUOTE, KeyCode::QUOTE, KeyCode::VK_NONE, ModifierFlag::NONE, KeyCode::VK_CONFIG_SYNC_KEYDOWNUP_notsave_quotemark_mode</autogen>
+      </item>
+    </item>
+    <item>
+      <name>Brackets</name>
+      <appendix>E, R to [, ]</appendix>
+      <appendix>D, F to (, )</appendix> <appendix>C, V to {, }</appendix>
+      <autogen>__ShowStatusMessage__ Brackets mode</autogen>
+      <autogen>__KeyToKey__ KeyCode::E, KeyCode::BRACKET_LEFT</autogen>
+      <autogen>__KeyToKey__ KeyCode::R, KeyCode::BRACKET_RIGHT</autogen>
+      <autogen>__KeyToKey__ KeyCode::D, KeyCode::KEY_9, VK_SHIFT</autogen>
+      <autogen>__KeyToKey__ KeyCode::F, KeyCode::KEY_0, VK_SHIFT</autogen>
+      <autogen>__KeyToKey__ KeyCode::C, KeyCode::BRACKET_LEFT, VK_SHIFT</autogen>
+      <autogen>__KeyToKey__ KeyCode::V, KeyCode::BRACKET_RIGHT, VK_SHIFT</autogen>
+      <item>
+        <name>Hold [ to enable the modifiers</name>
+        <identifier vk_config="true">notsave.brackets_mode</identifier>
+        <appendix>Typing [ alone still produces [</appendix>
+        <identifier>private.brackets_mode</identifier>
+        <autogen>__HoldingKeyToKey__ KeyCode::BRACKET_LEFT, KeyCode::BRACKET_LEFT, KeyCode::VK_NONE, ModifierFlag::NONE, KeyCode::VK_CONFIG_SYNC_KEYDOWNUP_notsave_brackets_mode</autogen>
+      </item>
+    </item>
+      <!-- Note: Use KeyCode::VK_NONE as a separator of parameters --><!--
+      <autogen>__HoldingKeyToKey__ KeyCode::ESCAPE, KeyCode::TAB, KeyCode::VK_NONE, KeyCode::SPACE</autogen>
+      <autogen>__HoldingKeyToKey__ KeyCode::TAB, KeyCode::A, KeyCode::S, KeyCode::D, ModifierFlag::CONTROL_L, KeyCode::F, KeyCode::VK_NONE, KeyCode::Q, KeyCode::W, KeyCode::E, ModifierFlag::SHIFT_L, KeyCode::R</autogen>
+      <autogen>__HoldingKeyToKey__ KeyCode::SHIFT_R, VK_OPTION, KeyCode::RETURN, KeyCode::VK_NONE, KeyCode::SPACE</autogen>
+      <autogen>__HoldingKeyToKey__ KeyCode::A, VK_SHIFT, KeyCode::B, ModifierFlag::OPTION_L, KeyCode::VK_NONE, KeyCode::RETURN, ModifierFlag::COMMAND_L</autogen>
+      <autogen>__HoldingKeyToKey__ KeyCode::B, VK_CONTROL, KeyCode::B, ModifierFlag::OPTION_L, KeyCode::C, KeyCode::VK_NONE, KeyCode::SPACE</autogen>
+      <autogen>__HoldingKeyToKey__ KeyCode::C, KeyCode::SPACE, KeyCode::VK_NONE, KeyCode::SHIFT_L</autogen>
+      <autogen>__HoldingKeyToKey__ KeyCode::D, KeyCode::SHIFT_L, KeyCode::VK_NONE, KeyCode::OPTION_L</autogen>
+      <autogen>__HoldingKeyToKey__ KeyCode::E, VK_SHIFT, KeyCode::CONTROL_L, KeyCode::VK_NONE, KeyCode::OPTION_L</autogen>
+    </item>
+    <item>
+      <name>with ModifierFlag::NONE</name>
+      <appendix>Escape to Tab (without any modifiers) (+ Holding Escape to Space)</appendix>
+      <appendix>Shift_R to Return (without other modifiers) (+ Holding Shift_R to Space)</appendix>
+      <identifier>remap.samples_holdingkeytokey_modifierflag_none</identifier>
+      <autogen>__HoldingKeyToKey__ KeyCode::ESCAPE, ModifierFlag::NONE, KeyCode::TAB, KeyCode::VK_NONE, KeyCode::SPACE</autogen>
+      <autogen>__HoldingKeyToKey__ KeyCode::SHIFT_R, ModifierFlag::SHIFT_R | ModifierFlag::NONE, KeyCode::RETURN, KeyCode::VK_NONE, KeyCode::SPACE</autogen>
+    </item>
+    <item>
+      <name>NoRepeat</name>
+      <appendix>Escape to Tab (+ Holding Escape to Space)</appendix>
+      <appendix>Tab to VK_NONE (+ Holding Tab to Escape)</appendix>
+      <identifier>remap.samples_holdingkeytokey_norepeat</identifier>
+      <autogen>__HoldingKeyToKey__ KeyCode::ESCAPE, KeyCode::TAB, KeyCode::VK_NONE, KeyCode::SPACE, Option::NOREPEAT</autogen>
+      <autogen>__HoldingKeyToKey__ KeyCode::TAB, KeyCode::VK_NONE, KeyCode::ESCAPE, Option::NOREPEAT</autogen>
+    </item>-->
+  </item>
+
+  <!--
+  <item>
+    <name>Control_R+Shift to the appropriate bracket</name>
+    <identifier>private.shiftControlR2Brackets</identifier>
+    <autogen>-KeyToKey- KeyCode::SHIFT_L, ModifierFlag::COMMAND_R, KeyCode::[</autogen>
+    <autogen>-KeyToKey- KeyCode::SHIFT_R, ModifierFlag::COMMAND_R, KeyCode::]</autogen>
+  </item>-->
+
+</root>
